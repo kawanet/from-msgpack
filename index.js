@@ -1,3 +1,3 @@
 "use strict";
 
-exports.fromMsgpack = require("./lib/from-msgpack").init();
+exports.fromMsgpack = require("./lib/from-msgpack").fromMsgpack;
