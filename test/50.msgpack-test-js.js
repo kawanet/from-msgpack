@@ -1,12 +1,12 @@
 "use strict";
-exports.__esModule = true;
-var assert = require("assert");
-var msgpack_test_js_1 = require("msgpack-test-js");
-var _1 = require("../");
-var msgpack = _1.fromMsgpack();
-var TITLE = __filename.split("/").pop();
+Object.defineProperty(exports, "__esModule", { value: true });
+const assert = require("assert");
+const msgpack_test_js_1 = require("msgpack-test-js");
+const _1 = require("../");
+const msgpack = _1.fromMsgpack();
+const TITLE = __filename.split("/").pop();
 // set 1 for types to run test
-var TEST_TYPES = {
+const TEST_TYPES = {
     array: 1,
     bignum: 0,
     binary: 1,
@@ -18,13 +18,13 @@ var TEST_TYPES = {
     string: 1,
     timestamp: 0
 };
-describe(TITLE, function () {
-    msgpack_test_js_1.Group.getGroups().forEach(function (group) {
-        describe(group + "", function () {
-            group.getExams(TEST_TYPES).forEach(function (exam) {
-                exam.getMsgpacks().forEach(function (encoded, idx) {
+describe(TITLE, () => {
+    msgpack_test_js_1.Group.getGroups().forEach((group) => {
+        describe(group + "", () => {
+            group.getExams(TEST_TYPES).forEach((exam) => {
+                exam.getMsgpacks().forEach((encoded, idx) => {
                     it(exam.stringify(idx), function () {
-                        var value = msgpack.decode(encoded);
+                        const value = msgpack.decode(encoded);
                         assert(exam.matchValue(value), JSON.stringify(value));
                     });
                 });

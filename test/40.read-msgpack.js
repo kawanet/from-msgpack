@@ -1,21 +1,21 @@
 "use strict";
-exports.__esModule = true;
-var assert = require("assert");
-var _1 = require("../");
-var msgpack = _1.fromMsgpack();
-var TITLE = __filename.split("/").pop();
-describe(TITLE, function () {
-    var AAA = Buffer.from([0xa3, 0x41, 0x41, 0x41]);
-    var BBB = Buffer.from([0xa3, 0x42, 0x42, 0x42]);
-    var CCC = Buffer.from([0xa3, 0x43, 0x43, 0x43]);
-    it("msgpack.decode()", function () {
-        var value = msgpack.decode(AAA);
+Object.defineProperty(exports, "__esModule", { value: true });
+const assert = require("assert");
+const _1 = require("../");
+const msgpack = _1.fromMsgpack();
+const TITLE = __filename.split("/").pop();
+describe(TITLE, () => {
+    const AAA = Buffer.from([0xa3, 0x41, 0x41, 0x41]);
+    const BBB = Buffer.from([0xa3, 0x42, 0x42, 0x42]);
+    const CCC = Buffer.from([0xa3, 0x43, 0x43, 0x43]);
+    it("msgpack.decode()", () => {
+        const value = msgpack.decode(AAA);
         assert.equal(value, "AAA");
     });
-    it("single push() + multiple readMsgpack()", function () {
-        var buf = Buffer.concat([AAA, BBB, CCC]);
-        var readable = msgpack.createReadable();
-        var readMsgpack = function () {
+    it("single push() + multiple readMsgpack()", () => {
+        const buf = Buffer.concat([AAA, BBB, CCC]);
+        const readable = msgpack.createReadable();
+        const readMsgpack = () => {
             readable.readMsgpack();
         };
         readable.push(buf);
@@ -24,9 +24,9 @@ describe(TITLE, function () {
         assert.equal(readable.readMsgpack(), "CCC");
         assert.throws(readMsgpack);
     });
-    it("multiple push() + multiple readMsgpack()", function () {
-        var decoder = msgpack.createReadable();
-        var readMsgpack = function () {
+    it("multiple push() + multiple readMsgpack()", () => {
+        const decoder = msgpack.createReadable();
+        const readMsgpack = () => {
             decoder.readMsgpack();
         };
         decoder.push(AAA).push(BBB).push(CCC);
@@ -35,14 +35,14 @@ describe(TITLE, function () {
         assert.equal(decoder.readMsgpack(), "CCC");
         assert.throws(readMsgpack);
     });
-    it("fragmented push() + multiple readMsgpack()", function () {
-        var buf = Buffer.concat([AAA, BBB, CCC]);
-        var buf1 = buf.slice(0, 3);
-        var buf2 = buf.slice(3, 7);
-        var buf3 = buf.slice(7, 11);
-        var buf4 = buf.slice(11);
-        var readable = msgpack.createReadable();
-        var readMsgpack = function () {
+    it("fragmented push() + multiple readMsgpack()", () => {
+        const buf = Buffer.concat([AAA, BBB, CCC]);
+        const buf1 = buf.slice(0, 3);
+        const buf2 = buf.slice(3, 7);
+        const buf3 = buf.slice(7, 11);
+        const buf4 = buf.slice(11);
+        const readable = msgpack.createReadable();
+        const readMsgpack = () => {
             readable.readMsgpack();
         };
         readable.push(buf1);
@@ -54,14 +54,14 @@ describe(TITLE, function () {
         assert.equal(readable.readMsgpack(), "CCC");
         assert.throws(readMsgpack);
     });
-    it("fragmented push() + multiple readMsgpack() + rollbacks", function () {
-        var buf = Buffer.concat([AAA, BBB, CCC]);
-        var buf1 = buf.slice(0, 3);
-        var buf2 = buf.slice(3, 7);
-        var buf3 = buf.slice(7, 11);
-        var buf4 = buf.slice(11);
-        var readable = msgpack.createReadable();
-        var readMsgpack = function () {
+    it("fragmented push() + multiple readMsgpack() + rollbacks", () => {
+        const buf = Buffer.concat([AAA, BBB, CCC]);
+        const buf1 = buf.slice(0, 3);
+        const buf2 = buf.slice(3, 7);
+        const buf3 = buf.slice(7, 11);
+        const buf4 = buf.slice(11);
+        const readable = msgpack.createReadable();
+        const readMsgpack = () => {
             readable.readMsgpack();
         };
         readable.push(buf1);
