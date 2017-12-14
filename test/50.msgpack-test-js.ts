@@ -2,9 +2,9 @@
 
 import * as assert from "assert";
 import {Group} from "msgpack-test-js";
-import {fromMsgpack} from "../";
+import {createDecoder} from "../";
 
-const msgpack = fromMsgpack();
+const msgpack = createDecoder();
 const TITLE = __filename.split("/").pop();
 
 // set 1 for types to run test

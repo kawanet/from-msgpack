@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const assert = require("assert");
 const msg_interface_1 = require("msg-interface");
 const _1 = require("../");
-const msgpack = _1.fromMsgpack();
+const msgpack = _1.createDecoder();
 const TITLE = __filename.split("/").pop();
 describe(TITLE, () => {
     const D4 = "d4-10-11";

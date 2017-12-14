@@ -4,14 +4,14 @@
 
 import {ReadableBuffer} from "liberal-buffer";
 
-export declare function fromMsgpack(options?: object): FromMsgpack;
+export declare function createDecoder(options?: object): MsgpackDecoder;
 
-declare class FromMsgpack {
+declare class MsgpackDecoder {
     decode(buffer: Buffer, offset?: number): any;
 
-    createReadable(): MsgpackReadable;
+    createReadable(): ReadableMsgpack;
 }
 
-declare class MsgpackReadable extends ReadableBuffer {
+declare class ReadableMsgpack extends ReadableBuffer {
     readMsgpack(): any;
 }

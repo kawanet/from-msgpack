@@ -5,7 +5,7 @@
 ### Synopsis
 
 ```js
-const msgpack = require("from-msgpack").fromMsgpack();
+const msgpack = require("from-msgpack").createDecoder();
 
 let buffer = Buffer.from([0x81, 0xa4, 0x73, 0x6f, 0x6d, 0x65, 0xa5, 0x76, 0x61, 0x6c, 0x75, 0x65]);
 

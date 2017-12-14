@@ -1,3 +1,3 @@
 "use strict";
 
-exports.fromMsgpack = require("./lib/from-msgpack").fromMsgpack;
+exports.createDecoder = require("./lib/from-msgpack").createDecoder;

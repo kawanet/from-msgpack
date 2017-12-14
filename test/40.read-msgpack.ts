@@ -1,9 +1,9 @@
 "use strict";
 
 import * as assert from "assert";
-import {fromMsgpack} from "../";
+import {createDecoder} from "../";
 
-const msgpack = fromMsgpack();
+const msgpack = createDecoder();
 const TITLE = __filename.split("/").pop();
 
 describe(TITLE, () => {

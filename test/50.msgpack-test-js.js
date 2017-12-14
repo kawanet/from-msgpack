@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const assert = require("assert");
 const msgpack_test_js_1 = require("msgpack-test-js");
 const _1 = require("../");
-const msgpack = _1.fromMsgpack();
+const msgpack = _1.createDecoder();
 const TITLE = __filename.split("/").pop();
 // set 1 for types to run test
 const TEST_TYPES = {

@@ -2,9 +2,9 @@
 
 import * as assert from "assert";
 import {Msg, MsgExt} from "msg-interface";
-import {fromMsgpack} from "../";
+import {createDecoder} from "../";
 
-const msgpack = fromMsgpack();
+const msgpack = createDecoder();
 const TITLE = __filename.split("/").pop();
 
 describe(TITLE, () => {

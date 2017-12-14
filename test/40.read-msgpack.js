@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const assert = require("assert");
 const _1 = require("../");
-const msgpack = _1.fromMsgpack();
+const msgpack = _1.createDecoder();
 const TITLE = __filename.split("/").pop();
 describe(TITLE, () => {
     const AAA = Buffer.from([0xa3, 0x41, 0x41, 0x41]);
